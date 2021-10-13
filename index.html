@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>latihan menghitung</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body{
+			background-color: black;
+		}
+		h1{
+			color: white;
+			font-size: 15px;
+		}
+		.content{
+			display: flex;
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			overflow: auto;
+		}
+
+		form{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 80vw;
+			height:80vh;
+			border: 5px solid blue;
+			background-color: silver;
+		}
+		
+		.ket{
+			color: white;
+		}
+
+		.salah{
+			display: flex;
+			width: 80%;
+			height: 10%;
+			background-color: white;
+			border: 2px solid lightblue;
+			border-radius: 10px;
+			text-align: center;
+			margin-bottom: 5px;
+			justify-content: center;
+			align-items: center;
+		}
+		.jawaban{
+			width: 80%;
+			height: 10%;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+		.periksa{
+			width: 40%;
+			height: 10%;
+			border: 2px solid lightblue;
+			text-align: center;
+			margin-bottom: 10px;
+			border-radius: 10px;
+			background-color: white;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+
+		@media screen and (min-width: 600px)
+		{
+			.content{
+				font-size: 20px;
+			}
+
+			form,input,a{
+				font-size: 30px;
+			}
+
+		}
+
+	</style>
+</head>
+<body>
+<div class="content">
+		<h1>Tes Berhitung</h1>
+		
+	<form>
+		<span class="salah" id="salah">Hasil</span><br><br>
+		<span id="soal" class="salah">Kamu siap.</span>
+		<span id="jawaban" class="jawaban"></span>
+		<input type="text" name="jawabanuser" id="jawabanuser"  placeholder="masukkan jawaban anda." autofocus required class="salah">
+		<button type="reset" class="periksa"><a href="index.html">Riset</a></button>
+		<span class="periksa" id="periksa">Periksa</span>
+		<span type="submit" class="periksa" id="next">Mulai</span>
+	</form>
+	<div class="ket">
+		Ket. <br>
+		=> Klik tombol Mulai untuk memulai. Tombol mulai juga berfungsi sebagai next soal.<br>
+		=> Ketika tombol Periksa di klik, soal otomatis berubah ke soal berikutnya. <br>
+		=> Keterangan benar atau salah tedapat di kolom paling atas.<br>
+		=> Jika kolom jawaban tidak diisi maka dianggap angka 0. <br>
+		=> Mohon maaf untuk skor belum dibuat, codingnya susah hahaha. <br>
+		=> Nomal pada lebar layar >300px. <br>
+		=> Mohon maaf masih banyak terdap bug.
+	</div>
+</div>
+<script type="text/javascript">
+	let soal = document.getElementById('soal');
+	let periksa = document.getElementById('periksa');
+	let next = document.getElementById('next');
+	var jawaban = document.getElementById('jawaban');
+	var ping=document.getElementById('salah');
+
+	
+	function soalacak()
+	{
+	var angka1= Math.floor( Math.random()*1000);
+	var angka2= Math.floor( Math.random()*1000);
+	var acak= Math.floor( Math.random()*10);
+	let acaksoal= 
+	[
+	angka1+angka2, 
+	angka1-angka2,
+	angka1*angka2,
+	angka1/angka2,
+	angka1%angka2,
+
+	angka2+angka1,
+	angka2-angka1,
+	angka2*angka1,
+	angka2/angka1,
+	angka2%angka1,
+	
+
+	];
+
+	let tampil =
+	[
+	angka1+'+'+angka2, 
+	angka1+'-'+angka2,
+	angka1+'*'+angka2,
+	angka1+'/'+angka2,
+	angka1+'%'+angka2,
+
+	angka2+'+'+angka1, 
+	angka2+'-'+angka1,
+	angka2+'*'+angka1,
+	angka2+'/'+angka1,
+	angka2+'%'+angka1,
+
+	];
+var tampilkan_soal= tampil[acak];
+var view= acaksoal[acak];
+soal.innerHTML=tampilkan_soal+' =..?';
+periksa.addEventListener('click', function  kembali() {
+let jawabanuser = document.getElementById('jawabanuser');
+if (jawabanuser.value!=view)
+ {	
+
+	jawaban.innerHTML='jawaban salah';
+	jawaban.style.color='red';
+	ping.innerHTML=tampilkan_soal+' = '+ view;
+	return soalacak();
+
+
+}
+
+
+
+
+else{
+	jawaban.innerHTML='jawaban benar';
+	jawaban.style.color='red';
+	ping.innerHTML=' Kamu hebat '+tampilkan_soal+' = '+ view;
+	return soalacak();
+}
+
+
+});
+
+}
+
+
+
+next.addEventListener('click', function(){
+jawaban.style.color='silver';
+return soalacak();
+
+});
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

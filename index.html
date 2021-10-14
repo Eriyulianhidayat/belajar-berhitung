@@ -111,12 +111,12 @@
 	<div class="ket">
 		Ket. <br>
 		=> Klik tombol Mulai untuk memulai. Tombol mulai juga berfungsi sebagai next soal.<br>
-		=> Ketika tombol Periksa di klik, soal otomatis berubah ke soal berikutnya. <br>
+		=> Ketika tombol Periksa di klik, jika jawaban benar maka soal otomatis ke soal selanjutnya. <br>
 		=> Keterangan benar atau salah tedapat di kolom paling atas.<br>
 		=> Jika kolom jawaban tidak diisi maka dianggap angka 0. <br>
 		=> Mohon maaf untuk skor belum dibuat, codingnya susah hahaha. <br>
 		=> Nomal pada lebar layar >300px. <br>
-		=> Mohon maaf masih banyak terdap bug.
+		=> Mohon maaf masih banyak terdapat bug.
 	</div>
 </div>
 <script type="text/javascript">
@@ -175,7 +175,6 @@ if (jawabanuser.value!=view)
 	jawaban.innerHTML='jawaban salah';
 	jawaban.style.color='red';
 	ping.innerHTML=tampilkan_soal+' = '+ view;
-	return soalacak();
 
 
 }

@@ -61,6 +61,10 @@
 			height: 10%;
 			text-align: center;
 			margin-bottom: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
 		}
 		.periksa{
 			width: 40%;
@@ -129,6 +133,8 @@
 	
 	function soalacak()
 	{
+        ping.innerHTML='Tau gak jawabannya?';
+        ping.style.color='red';
 	var angka1= Math.floor( Math.random()*1000);
 	var angka2= Math.floor( Math.random()*1000);
 	var acak= Math.floor( Math.random()*10);
@@ -175,6 +181,7 @@ if (jawabanuser.value!=view)
 	jawaban.innerHTML='jawaban salah';
 	jawaban.style.color='red';
 	ping.innerHTML=tampilkan_soal+' = '+ view;
+        ping.style.color='black';
 
 
 }
@@ -186,6 +193,7 @@ else{
 	jawaban.innerHTML='jawaban benar';
 	jawaban.style.color='red';
 	ping.innerHTML=' Kamu hebat '+tampilkan_soal+' = '+ view;
+        ping.style.color='black'
 	return soalacak();
 }
 
